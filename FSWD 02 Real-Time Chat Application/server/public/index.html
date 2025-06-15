@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Rooms</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center font-sans">
+  <div class="w-full max-w-md p-6 bg-white rounded-2xl shadow-xl">
+    <div id="join-container">
+      <h2 class="text-2xl font-semibold mb-4 text-center text-indigo-600">Join a Chat Room</h2>
+      <form id="join-form" class="space-y-4">
+        <input
+          id="username"
+          type="text"
+          placeholder="Enter your username"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+        <input
+          id="room"
+          type="text"
+          placeholder="Room name"
+          required
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+        <button
+          type="submit"
+          class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+        >
+          Join
+        </button>
+      </form>
+    </div>
+
+    <div id="chat-box" class="hidden mt-6">
+      <h3 class="text-xl font-semibold text-indigo-600 mb-3 text-center">Room Chat</h3>
+      <ul id="messages" class="space-y-2 max-h-60 overflow-y-auto border rounded-lg p-3 bg-gray-50"></ul>
+      <form id="chat-form" class="mt-4 flex gap-2">
+        <input
+          id="message"
+          type="text"
+          autocomplete="off"
+          placeholder="Type your message"
+          class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        />
+        <button
+          class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
